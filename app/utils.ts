@@ -32,7 +32,12 @@ function getMDXFiles(dir) {
 
 function readMDXFile(filePath) {
   let rawContent = fs.readFileSync(filePath, 'utf-8')
-  return parseFrontmatter(rawContent)
+  try {
+    return parseFrontmatter(rawContent)
+  } catch (error) {
+    console.error(`\n\n\nError parsing frontmatter for ${filePath}:`, error)
+    throw error
+  }
 }
 
 function getMDXData(dir) {
@@ -51,6 +56,10 @@ function getMDXData(dir) {
 
 export function getBlogPosts() {
   return getMDXData(path.join(process.cwd(), 'app', 'blog', 'posts'))
+}
+
+export function getProjectPosts() {
+  return getMDXData(path.join(process.cwd(), 'app', 'projects', 'posts'))
 }
 
 export function formatDate(date: string, includeRelative = false) {

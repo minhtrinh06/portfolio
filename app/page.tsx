@@ -1,5 +1,3 @@
-import { BlogPosts } from 'app/components/posts'
-
 export default function Page() {
   return (
     <section>
@@ -9,9 +7,6 @@ export default function Page() {
       <p className="mb-4">
         {`Passionate software engineer crafting efficient solutions. Vim enthusiast with a knack for optimizing workflows. When not coding, you'll find me scaling boulders, shooting hoops, or optimising my Rubik's cube solves`}
       </p>
-      <div className="my-8">
-        <BlogPosts />
-      </div>
     </section>
   )
 }
